@@ -4,4 +4,4 @@ from django.http import HttpResponse
 
 
 def main(request):
-    return HttpResponse("ЯЯЯЯЯЯЯЯЯЯЯЯЯЯ")
+    return render(request, "start/start.html")
