@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        .lesson div{
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<form action="" method="post">
+<div class="header">
+
+</div>
+
+<div class="main">
+    {{for day in information.keys()}}
+        <div class="weekday">
+            <h2>{{day}}</h2>
+            <div class="all">
+                {{for el in information[day]}}
+                    <div class="lesson">
+                        <div class="les">
+                            <p>{{el.keys[0]}}</p>
+                        </div>
+                        <div class="hometasks">
+                            {{for task in el[el.keys[0]]["home"]}}
+                                <div class="task">
+                                    <p>{{task}}</p>
+                                </div>
+                            {{endfor}}
+                            <button class="add_task">Добавить</button>
+                        </div>
+                        <div class="notices">
+                            {{for note in el[el.keys[0]]["notes"]}}
+                                <div class="note">
+                                    <p>{{note}}</p>
+                                </div>
+                            {{endfor}}
+                            <button class="add_note">Добавить</button>
+                        </div>
+                    </div>
+                {{endfor}}
+            </div>
+        </div>
+    {{endfor}}
+</div>
+<p>{{login}}</p>
+</form>
+</body>
+</html>
