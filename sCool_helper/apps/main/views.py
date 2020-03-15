@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-# Create your views here.
+from django.core.cache import cache
 
 
 def main(request):
-    return HttpResponse("ЯЯЯЯЯЯЯЯЯЯЯЯЯЯ")
+    context = {"login": cache.get("login")}
+    return render(request, r'main\main.html', context)
